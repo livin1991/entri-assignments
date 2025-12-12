@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dry Bean Classification</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Dry Bean Classification</h1>
+    <p>Enter feature values to predict bean class</p>
+
+    <form action="/predict" method="post">
+
+        <input type="number" step="any" name="f1" placeholder="Area" required>
+        <input type="number" step="any" name="f2" placeholder="Perimeter" required>
+        <input type="number" step="any" name="f3" placeholder="Major Axis Length" required>
+        <input type="number" step="any" name="f4" placeholder="Minor Axis Length" required>
+        <input type="number" step="any" name="f5" placeholder="Aspect Ratio" required>
+        <input type="number" step="any" name="f6" placeholder="Eccentricity" required>
+        <input type="number" step="any" name="f7" placeholder="Convex Area" required>
+        <input type="number" step="any" name="f8" placeholder="Equivalent Diameter" required>
+        <input type="number" step="any" name="f9" placeholder="Extent" required>
+        <input type="number" step="any" name="f10" placeholder="Solidity" required>
+        <input type="number" step="any" name="f11" placeholder="Roundness" required>
+        <input type="number" step="any" name="f12" placeholder="Compactness" required>
+        <input type="number" step="any" name="f13" placeholder="Shape Factor 1" required>
+        <input type="number" step="any" name="f14" placeholder="Shape Factor 2" required>
+        <input type="number" step="any" name="f15" placeholder="Shape Factor 3" required>
+        <input type="number" step="any" name="f16" placeholder="Shape Factor 4" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
